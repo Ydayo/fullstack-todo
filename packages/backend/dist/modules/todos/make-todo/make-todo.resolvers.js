@@ -2,16 +2,18 @@ export const resolvers = {
     Mutation: {
         // eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/require-await
         makeTodo: async (_, { makeTodoInput }, { prismaClient }, info) => {
+            // console.log(`hello: ${makeTodoInput}`);
             const newTodo = await prismaClient.todo.create({
                 data: {
+                    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
                     title: makeTodoInput.title,
                 },
             });
             return {
                 todo: {
                     ...newTodo,
-                    updatedAt: newTodo.updatedAt.toISOString(),
-                    createdAt: newTodo.createdAt.toISOString(),
+                    updatedAt: newTodo.updatedAt,
+                    createdAt: newTodo.createdAt,
                 },
             };
         },
