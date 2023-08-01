@@ -28,5 +28,10 @@ module.exports = {
     project: ["tsconfig.eslint.json"],
   },
   plugins: ["@typescript-eslint", "react"],
-  rules: {},
+  rules: {
+    "no-empty-pattern": "off",
+    "@typescript-eslint/ban-types": "off",
+    "react/prop-types": "off",
+    "react/react-in-jsx-scope": "off",
+  },
 };
